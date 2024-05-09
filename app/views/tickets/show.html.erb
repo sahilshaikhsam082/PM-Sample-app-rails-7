@@ -6,7 +6,7 @@
   <p><strong>User:</strong> <%= @ticket.user.email if @ticket.user %></p>
 </div>
 
-<div id="editTicketForm" style="display: none;">
+<div id="editTicketForm" style="display: none;"class="side-nav">
   <%= render 'form', ticket: @ticket %>
 </div>
 
@@ -17,14 +17,12 @@
 <%= link_to 'Back', project_path(@ticket.project) %>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const editButton = document.getElementById('editButton');
-    const ticketDetails = document.getElementById('ticketDetails');
-    const editTicketForm = document.getElementById('editTicketForm');
+document.addEventListener('DOMContentLoaded', function() {
+  const editButton = document.getElementById('editButton');
+  const editTicketForm = document.getElementById('editTicketForm');
 
-    editButton.addEventListener('click', function() {
-      ticketDetails.style.display = 'none';
-      editTicketForm.style.display = 'block';
-    });
+  editButton.addEventListener('click', function() {
+    editTicketForm.style.display = 'block';
   });
+});
 </script>

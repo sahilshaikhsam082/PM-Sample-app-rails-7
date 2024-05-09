@@ -18,7 +18,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       redirect_to project_tickets_path(@project), notice: 'Ticket was successfully created.'
     else
-      render :new
+      render json: {}
     end
   end
 

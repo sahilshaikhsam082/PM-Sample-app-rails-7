@@ -1,35 +1,38 @@
 <h1><%= @project.name %></h1>
 <p><strong>User:</strong> <%= @project.user.email %></p>
-
+<hr>
 <h2>Tickets</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>User</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+
+  <div class= 'tile'>
     <% @project.tickets.each do |ticket| %>
-      <tr>
-        <td><%= ticket.title %></td>
-        <td><%= ticket.description %></td>
-        <td><%= ticket.status %></td>
-        <td><%= ticket.user.email if ticket.user %></td>
+      <div class="ticket tile-display">
         <td>
-          <%= link_to 'Show', project_ticket_path(@project, ticket) %>
-          <%= link_to 'Delete', project_ticket_path(@project, ticket), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <h4><%= ticket.title %></h4>
+          <p class="float-right">
+            <% case ticket.status %>
+              <% when 'backlog' %>
+                Backlog <span class="status-ball status-backlog"></span>
+              <% when 'in_progress' %>
+                In Progress <span class="status-ball status-in-progress"></span>
+              <% when 'in_review' %>
+                In Review <span class="status-ball status-in-review"></span>
+              <% when 'done' %>
+                Done <span class="status-ball status-done"></span> 
+            <% end %>
+          </p>
+          <p><%= ticket.description %></p>
+          <p class="float-right">
+            <%= link_to 'Show', project_ticket_path(@project, ticket) %>
+            <%= link_to 'Delete', project_ticket_path(@project, ticket), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
         </td>
-      </tr>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
 <h2>New Ticket</h2>
-<%= render 'tickets/form', ticket: @project.tickets.new %>
-
+<div>
+  <%= render 'tickets/form', ticket: @project.tickets.new %>
+</div>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

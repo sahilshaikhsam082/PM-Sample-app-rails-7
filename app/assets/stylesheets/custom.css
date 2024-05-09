@@ -1,0 +1,334 @@
+/* CSS for table with equal width th */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Use fixed table layout */
+}
+
+.table th {
+  width: 25%; /* Set width for each th (four columns, so each takes 25% width) */
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Other styles for table cells and rows */
+.table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Alternating row colors */
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hover effect */
+.table tr:hover {
+  background-color: #e9ecef;
+}
+
+.ticket {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.ticket td, .ticket th {
+  padding: 10px;
+  text-align: left;
+}
+
+.ticket th {
+  background-color: #f2f2f2;
+}
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Style for form inputs */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* Style for form select inputs */
+form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* Style for form submit button */
+form input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+.side-nav {
+  position: absolute; 
+  background-color: rgba(103, 170, 240, 0.5); 
+  padding: 20px;
+  z-index: 1; 
+  border-radius: 5px;
+  cursor: move; 
+  width: 30%;
+  margin-left: 35%;
+}
+
+
+.side-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+
+.side-nav a:hover {
+  text-decoration: underline;
+}
+
+
+body, h1, p {
+  margin: 10px;
+  padding: 10px;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none; 
+}
+
+
+a:hover {
+  color: #0056b3; 
+}
+
+.ticket {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.ticket td {
+  padding: 5px;
+}
+
+.ticket th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.ticket td:nth-child(2) {
+  grid-row: 2 / span 2;
+}
+
+.ticket td:nth-child(5) {
+  grid-column: 1 / span 2;
+}
+
+.ticket a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.ticket a:hover {
+  text-decoration: underline;
+}
+
+.ticket a.delete {
+  color: red;
+}
+
+.ticket a.delete:hover {
+  color: darkred;
+}
+.float-right {
+  float: right;
+}
+.status-ball {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.status-backlog {
+  background-color: #ffcc00; /* Yellow */
+}
+
+.status-in-progress {
+  background-color: #007bff; /* Blue */
+}
+
+.status-in-review {
+  background-color: #28a745; /* Green */
+}
+
+.status-done {
+  background-color: #dc3545; /* Red */
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+/* CSS for ticket details page */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#ticketDetails {
+  margin-bottom: 20px;
+}
+
+#ticketDetails p {
+  margin: 0;
+}
+
+.side-nav {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: none;
+  max-width: 300px;
+}
+
+#editButton {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#editButton:hover {
+  background-color: #0056b3;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.tile {
+  display: inline-grid; 
+  margin-left: 35%;
+}
+.tile-display {
+  display: inline-block;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-image: linear-gradient(45deg, #0ae76745, #83b6ed);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
