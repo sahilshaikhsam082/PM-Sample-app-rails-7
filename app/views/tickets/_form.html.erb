@@ -1,0 +1,25 @@
+<%= form_with model: ticket, url: ticket.persisted? ? project_ticket_path(ticket.project, ticket) : project_tickets_path(ticket.project), local: true do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, Ticket.statuses.keys.map { |s| [s.humanize, s] } %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, 'Assigned User' %><br>
+    <%= form.collection_select :user_id, User.all, :id, :email, prompt: 'Select User' %>
+  </div>
+
+  <div>
+    <%= form.submit ticket.persisted? ? 'Update Ticket' : 'Create Ticket' %>
+  </div>
+<% end %>

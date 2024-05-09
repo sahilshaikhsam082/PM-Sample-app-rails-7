@@ -1,0 +1,15 @@
+<%= form_with model: project do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, 'User' %><br>
+    <%= form.collection_select :user_id, User.all, :id, :email, prompt: 'Select User' %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

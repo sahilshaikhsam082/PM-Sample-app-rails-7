@@ -1,0 +1,35 @@
+<h1><%= @project.name %></h1>
+<p><strong>User:</strong> <%= @project.user.email %></p>
+
+<h2>Tickets</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>User</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @project.tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.title %></td>
+        <td><%= ticket.description %></td>
+        <td><%= ticket.status %></td>
+        <td><%= ticket.user.email if ticket.user %></td>
+        <td>
+          <%= link_to 'Show', project_ticket_path(@project, ticket) %>
+          <%= link_to 'Delete', project_ticket_path(@project, ticket), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>New Ticket</h2>
+<%= render 'tickets/form', ticket: @project.tickets.new %>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

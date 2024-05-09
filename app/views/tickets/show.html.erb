@@ -1,0 +1,30 @@
+<h1><%= @ticket.title %></h1>
+
+<div id="ticketDetails">
+  <p><strong>Description:</strong> <%= @ticket.description %></p>
+  <p><strong>Status:</strong> <%= @ticket.status %></p>
+  <p><strong>User:</strong> <%= @ticket.user.email if @ticket.user %></p>
+</div>
+
+<div id="editTicketForm" style="display: none;">
+  <%= render 'form', ticket: @ticket %>
+</div>
+
+<% if current_user == @ticket.user %>
+  <button id="editButton">Edit</button>
+<% end %>
+
+<%= link_to 'Back', project_path(@ticket.project) %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const editButton = document.getElementById('editButton');
+    const ticketDetails = document.getElementById('ticketDetails');
+    const editTicketForm = document.getElementById('editTicketForm');
+
+    editButton.addEventListener('click', function() {
+      ticketDetails.style.display = 'none';
+      editTicketForm.style.display = 'block';
+    });
+  });
+</script>
